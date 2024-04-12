@@ -120,7 +120,7 @@ class SitesInformation():
         if "http://"  == data_file_path[:7].lower() or "https://" == data_file_path[:8].lower():
             # Reference is to a URL.
             try:
-                response = requests.get(url=data_file_path)
+                response = requests.get(url=data_file_path, timeout=60)
             except Exception as error:
                 raise FileNotFoundError(f"Problem while attempting to access "
                                         f"data file URL '{data_file_path}':  "
