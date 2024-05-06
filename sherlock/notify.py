@@ -218,7 +218,7 @@ class QueryNotifyPrint(QueryNotify):
                           Fore.WHITE + "]" +
                           Fore.GREEN + f" {self.result.site_name}:" +
                           Fore.RED + f" {self.result.context}" +
-                          Fore.YELLOW + f" ")
+                          Fore.YELLOW + " ")
                 else:
                     print(f"[-] {self.result.site_name}: {self.result.context} ")
 

@@ -122,7 +122,7 @@ class SitesInformation():
             try:
                 response = requests.get(url=data_file_path, timeout=60)
             except Exception as error:
-                raise FileNotFoundError(f"Problem while attempting to access "
+                raise FileNotFoundError("Problem while attempting to access "
                                         f"data file URL '{data_file_path}':  "
                                         f"{str(error)}"
                                        )
@@ -130,11 +130,11 @@ class SitesInformation():
                 try:
                     site_data = response.json()
                 except Exception as error:
-                    raise ValueError(f"Problem parsing json contents at "
+                    raise ValueError("Problem parsing json contents at "
                                      f"'{data_file_path}':  {str(error)}."
                                     )
             else:
-                raise FileNotFoundError(f"Bad response while accessing "
+                raise FileNotFoundError("Bad response while accessing "
                                         f"data file URL '{data_file_path}'."
                                        )
         else:
@@ -144,11 +144,11 @@ class SitesInformation():
                     try:
                         site_data = json.load(file)
                     except Exception as error:
-                        raise ValueError(f"Problem parsing json contents at "
+                        raise ValueError("Problem parsing json contents at "
                                          f"'{data_file_path}':  {str(error)}."
                                         )
             except FileNotFoundError as error:
-                raise FileNotFoundError(f"Problem while attempting to access "
+                raise FileNotFoundError("Problem while attempting to access "
                                         f"data file '{data_file_path}'."
                                        )
 
@@ -167,7 +167,7 @@ class SitesInformation():
                                     site_data[site_name]
                                    )
             except KeyError as error:
-                raise ValueError(f"Problem parsing json contents at "
+                raise ValueError("Problem parsing json contents at "
                                  f"'{data_file_path}':  "
                                  f"Missing attribute {str(error)}."
                                 )
