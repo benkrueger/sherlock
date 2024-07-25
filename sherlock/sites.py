@@ -3,11 +3,8 @@
 This module supports storing information about web sites.
 This is the raw data that will be used to search for usernames.
 """
-import os
 import json
-import operator
-import requests
-import sys
+from security import safe_requests
 
 
 class SiteInformation():
@@ -120,7 +117,7 @@ class SitesInformation():
         if "http://"  == data_file_path[:7].lower() or "https://" == data_file_path[:8].lower():
             # Reference is to a URL.
             try:
-                response = requests.get(url=data_file_path, timeout=60)
+                response = safe_requests.get(url=data_file_path, timeout=60)
             except Exception as error:
                 raise FileNotFoundError(f"Problem while attempting to access "
                                         f"data file URL '{data_file_path}':  "
